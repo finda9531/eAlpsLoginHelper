@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  
+  <style>
+    :root {
+      /* Google Material 3 Colors (Tonal Palette) */
+      --primary: #0b57d0; 
+      
+      /* 薄い水色（背景用） */
+      --secondary-container: #d3e3fd; 
+      /* 濃い紺色（文字・アイコン用） */
+      --on-secondary-container: #041e49;
+
+      --surface: #ffffff;
+      --surface-container: #f0f2f5;
+      
+      --text-main: #1f1f1f;
+      --text-sub: #444746;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--surface);
+      width: 280px;
+      color: var(--text-main);
+    }
+
+    /* ヘッダー */
+    header {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-icon-bg {
+      width: 40px;
+      height: 40px;
+      /* ヘッダーアイコンも統一感のあるTonal配色 */
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .header-icon-bg .material-symbols-rounded {
+        font-size: 20px;
+    }
+
+    .header-text h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      margin: 2px 0 0 0;
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    /* 入力エリア */
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-badge {
+      width: 24px;
+      height: 24px;
+      /* バッジも統一感のあるTonal配色 */
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: monospace;
+      flex-shrink: 0;
+    }
+
+    /* 入力欄 */
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: var(--text-main);
+      background-color: var(--surface-container);
+      border: none;
+      border-radius: 999px;
+      outline: none;
+      text-align: center;
+      font-family: monospace;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: box-shadow 0.2s;
+    }
+
+    input[type="text"]:focus {
+      background-color: #ffffff;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    
+    input[type="text"]::placeholder {
+      color: #8e918f;
+      font-weight: normal;
+    }
+
+    /* ボタン (Filled Tonal Button) */
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 40px;
+      
+      /* 背景と文字色を「数字バッジ」と同じルールに変更 */
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+      
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: none;
+    }
+
+    button:hover {
+      background-color: #c4d7fc; /* 少し濃く */
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    button:active {
+      transform: scale(0.98);
+      box-shadow: none;
+    }
+    
+    button .material-symbols-rounded {
+        font-size: 18px;
+    }
+
+    #status {
+      margin-top: 12px;
+      font-size: 12px;
+      text-align: center;
+      color: #146c2e;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-icon-bg">
+      <span class="material-symbols-rounded">lock</span>
+    </div>
+    <div class="header-text">
+      <h2>設定順</h2>
+      
+    </div>
+  </header>
+  
+  <div class="input-container">
+    <div class="input-row">
+      <div class="step-badge">1</div>
+      <input type="text" id="char1" maxlength="1" placeholder="A">
+    </div>
+    <div class="input-row">
+      <div class="step-badge">2</div>
+      <input type="text" id="char2" maxlength="1" placeholder="B">
+    </div>
+    <div class="input-row">
+      <div class="step-badge">3</div>
+      <input type="text" id="char3" maxlength="1" placeholder="C">
+    </div>
+    <div class="input-row">
+      <div class="step-badge">4</div>
+      <input type="text" id="char4" maxlength="1" placeholder="D">
+    </div>
+  </div>
+
+  <button id="saveBtn">
+    <span class="material-symbols-rounded">download</span>
+    <span>保存</span>
+  </button>
+  
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
