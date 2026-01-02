@@ -40,5 +40,5 @@
 * **無保証:** 引用元サイト（[信州大学公式サイト](https://www.shinshu-u.ac.jp/institution/iic/gakunai.html)）の仕様変更により、本ツールの機能が失われる可能性があります。製作者は保守・更新の義務を負いません。
 
 ---
-アイコンはこちら[こちら](https://iconbu.com/)からお借りしました
+アイコンは[こちら](https://iconbu.com/)からお借りしました
 
