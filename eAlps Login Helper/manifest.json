@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "ログイン用",
+  "version": "1.0",
+  "description": "ログインするやつ",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gakunin.ealps.shinshu-u.ac.jp/idp/Authn/External*"
+      ],
+      "js": [
+        "script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

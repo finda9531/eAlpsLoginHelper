@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      /* 落ち着いたミスティブルー・グレーのグラデーション */
+      --bg-gradient: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+      
+      /* ガラスの質感（白ベースで少し不透明度を高めて落ち着かせる） */
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.8);
+      
+      /* テキスト色：真っ黒ではなく濃いグレー */
+      --text-main: #4a5568;
+      --text-sub: #718096;
+      
+      /* アクセントカラー：彩度を抑えたインディゴブルー */
+      --accent-color: #5a67d8;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-image: var(--bg-gradient);
+      width: 260px; /* 幅はコンパクトに */
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 400px;
+    }
+
+    /* メインカード */
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      margin: 0 0 5px 0;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+    }
+
+    p.subtitle {
+      font-size: 11px;
+      text-align: center;
+      color: var(--text-sub);
+      margin: 0 0 20px 0;
+    }
+
+    /* 入力グループ（縦並び） */
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px; /* 入力欄同士の間隔 */
+      margin-bottom: 20px;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.5); /* 欄の背景を少し白く */
+      border-radius: 8px;
+      padding: 0 10px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    /* フォーカス時の光る演出（控えめに） */
+    .input-row:focus-within {
+      background: #fff;
+      border-color: #cbd5e0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-sub);
+      width: 30px; /* ラベル幅固定 */
+    }
+
+    input[type="text"] {
+      border: none;
+      background: transparent;
+      height: 40px;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      outline: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    input[type="text"]::placeholder {
+      color: #cbd5e0;
+      font-weight: normal;
+    }
+
+    /* ボタンデザイン */
+    button {
+      margin-top: auto;
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      box-shadow: 0 2px 4px rgba(90, 103, 216, 0.3);
+    }
+
+    button:hover {
+      background-color: #4c51bf;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #status {
+      margin-top: 10px;
+      font-size: 11px;
+      text-align: center;
+      color: #48bb78; /* 成功時の緑も少し落ち着いた色に */
+      height: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Login Pattern</h2>
+    <p class="subtitle">Configuration</p>
+    
+    <div class="input-container">
+      <div class="input-row">
+        <label>1st</label>
+        <input type="text" id="char1" maxlength="1" placeholder="A">
+      </div>
+      <div class="input-row">
+        <label>2nd</label>
+        <input type="text" id="char2" maxlength="1" placeholder="B">
+      </div>
+      <div class="input-row">
+        <label>3rd</label>
+        <input type="text" id="char3" maxlength="1" placeholder="C">
+      </div>
+      <div class="input-row">
+        <label>4th</label>
+        <input type="text" id="char4" maxlength="1" placeholder="D">
+      </div>
+    </div>
+
+    <button id="saveBtn">Save Settings</button>
+    <div id="status"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
