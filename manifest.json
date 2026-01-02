@@ -1,15 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "ログイン用",
+  "name": "eALPS Login Helper",
   "version": "1.0",
-  "description": "ログインするやつ",
+  "description": "信州大学のeALPSログイン画面において、ID入力などの操作を補助するためのツールです。",
   "permissions": [
     "storage"
   ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "48": "icon.png"
+      "16": "icon16.png",
+      "48": "icon48.png"
     }
   },
   "content_scripts": [
